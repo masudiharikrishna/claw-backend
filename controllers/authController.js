@@ -1,5 +1,6 @@
 const supabase = require("../config/supabase");
 const User = require('../models/User');
+const bcrypt = require('bcryptjs');
 
 exports.register = async (req, res) => {
   const { email, password } = req.body;
