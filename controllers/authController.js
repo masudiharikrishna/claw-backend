@@ -1,4 +1,4 @@
-const supabase = require('../supabase');
+const supabase = require("../config/supabase");
 const User = require('../models/User');
 
 exports.register = async (req, res) => {
