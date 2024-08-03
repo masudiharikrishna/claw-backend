@@ -13,12 +13,11 @@ const register = async (req, res) => {
   if (error) return res.status(400).json({ error: error.message });
 
   const hashedPassword = await bcrypt.hash(password, 10);
-  const newUser = new User({ email, password: hashedPassword, email_confirm: false });
+  const newUser = new User({ email, password: hashedPassword });
   await newUser.save();
 
-  res.status(201).json({ message: 'User registered successfully. Please check your email to confirm your account.', user: newUser });
+  res.status(201).json({ message: 'User registered successfully', user: newUser });
 };
-
 
 const login = async (req, res) => {
   const { email, password } = req.body;
